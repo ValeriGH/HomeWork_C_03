@@ -1,25 +1,22 @@
 ﻿Console.Clear();
 Console.Write("Введите пятизначное число: ");
-int n = Convert.ToInt32(Console.ReadLine());
-while (n < 10000 || n > 100000) // Провека на корректность ввода
+int num = Convert.ToInt32(Console.ReadLine());
+while (num < 10000 || num > 100000)
 {
     Console.Write("Вы ошиблись!\nВведите пятизначное число: ");
-    n = Convert.ToInt32(Console.ReadLine());
+    num = Convert.ToInt32(Console.ReadLine());
 }
 
-int ostatok = n;
-int n5 = ostatok % 10;
-ostatok = ostatok / 10;
-int n4 = ostatok % 10;
-ostatok = ostatok / 10;
-int n3 = ostatok % 10;
-ostatok = ostatok / 10;
-int n2 = ostatok % 10;
-ostatok = ostatok / 10;
-int n1 = ostatok % 10;
-ostatok = ostatok / 10;
+int rever = 0;
+int n = num;
+while (n != 0)
+{
+    rever = rever * 10 + n % 10;
+    n = n / 10;
+}
+//Console.WriteLine(rever);
 
-if (n1 == n5 && n2 == n4)
+if (num == rever)
     Console.WriteLine("Число является палиндромом");
 else   
     Console.WriteLine("Число не является палиндромом");
